@@ -1,3 +1,7 @@
 from django.contrib import admin
+from bdata.models import Route
 
-# Register your models here.
+class RouteAdmin(admin.ModelAdmin):
+    pass
+
+admin.site.register(Route, RouteAdmin)
