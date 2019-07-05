@@ -4,6 +4,6 @@ from bdata.models import Route, Bus
 # Create your views here.
 
 def test(request):
-    b = Bus.objects.all()
+    b = Bus.objects.first()
 
-    return HttpResponse(f"Bus No - {b[0]}")
+    return HttpResponse(f"{b.route.source}")

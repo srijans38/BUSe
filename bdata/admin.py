@@ -1,5 +1,5 @@
 from django.contrib import admin
-from bdata.models import Route, Bus
+from bdata.models import Route, Bus, BusLoc
 
 class RouteAdmin(admin.ModelAdmin):
     pass
@@ -7,5 +7,9 @@ class RouteAdmin(admin.ModelAdmin):
 class BusAdmin(admin.ModelAdmin):
     pass
 
+class BusLocAdmin(admin.ModelAdmin):
+    pass
+
 admin.site.register(Route, RouteAdmin)
 admin.site.register(Bus, BusAdmin)
+admin.site.register(BusLoc, BusLocAdmin)
