@@ -23,4 +23,8 @@ class BusLoc(models.Model):
     long = models.FloatField()
 
     def __str__(self):
+<<<<<<< HEAD
         return f"Bus No : {self.bus.bno}"
+=======
+        return f"Bus No : {self.bus.bno} , Latitude : {self.lat} ,  Longitude : {self.long}"
+>>>>>>> 556455568ee3a6c4e3d428190369d28f73259e6c
