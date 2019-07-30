@@ -18,7 +18,7 @@ class Bus(models.Model):
         return f"{self.bno[:2]} {self.bno[2:4]} {self.bno[4:6]} {self.bno[6:]}"
 
 class BusLoc(models.Model):
-    bus = models.ForeignKey(Bus, on_delete=models.CASCADE)
+    bus = models.OneToOneField(Bus, on_delete=models.CASCADE)
     lat = models.FloatField()
     long = models.FloatField()
 
