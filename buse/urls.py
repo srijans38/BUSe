@@ -20,5 +20,6 @@ from bdata import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
-    path('test/', views.test)
+    path('', views.home, name='home'),
+    path('find/', views.find, name="find"),
 ]

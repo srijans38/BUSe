@@ -3,7 +3,16 @@ from django.http import HttpResponse
 from bdata.models import Route, Bus
 # Create your views here.
 
-def test(request):
-    b = Bus.objects.first()
+def find(request):
+    context = {
+        "routes" : Route.objects.all(),
+        "buses" : Bus.objects.all()
+    }
+    return render(request, 'bdata/find.html', context=context)
 
-    return HttpResponse(f"{b.route.source}")
+def home(request):
+    context = {
+        "routes" : Route.objects.all(),
+        "buses" : Bus.objects.all()
+    }
+    return render(request, 'bdata/home.html', context=context)

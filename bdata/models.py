@@ -1,11 +1,19 @@
 from django.db import models
 
+routes_full = { 
+    "A" : "Airport",
+    "D" : "Durg",
+    "R" : "Raipur Jn"
+}
+
+d = "DEF"
+
 class Route(models.Model):
     source = models.CharField(max_length=1)
     destination = models.CharField(max_length=1)
 
     def __str__(self):
-        return f"{self.source} to {self.destination}"
+        return f"{routes_full.get(self.source, d)} to {routes_full.get(self.destination, d)}"
 
 class Bus(models.Model):
     bno = models.CharField(max_length=10)
