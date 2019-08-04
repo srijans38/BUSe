@@ -8,6 +8,7 @@ routes_full = {
 
 d = "DEF"
 
+
 class Route(models.Model):
     source = models.CharField(max_length=1)
     destination = models.CharField(max_length=1)

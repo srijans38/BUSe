@@ -6,12 +6,15 @@ from bdata.models import Route, Bus, BPoint
 def find(request):
     if request.method=="POST":
         route = request.POST.get("route")
-        bpoint = request.POST.get("bpoint")
-        a = BPoint.objects.filter(id=bpoint)
+        bpoint_selected = request.POST.get("bpoint")
+        buses = Bus.objects.filter(route=route)
+                
         context = {
-            "routeds" : a[0].route.all()
+            "routes" : Route.objects.all(),
+            "buses" : buses,
+            "bpoint_selected" : BPoint.objects.get(id=bpoint_selected)
         }
-        return render(request, 'bdata/find.html', context=context)
+        return render(request, 'bdata/search.html', context=context)
     context = {
         "routes" : Route.objects.all(),
         "buses" : Bus.objects.all(),
@@ -26,9 +29,3 @@ def home(request):
     }
     return render(request, 'bdata/home.html', context=context)
 
-def search(request):
-    context = {
-
-    }
-
-    return render(request, 'bdata/search.html', context=context)
