@@ -1,0 +1,56 @@
+{% extends 'bdata/base.html' %}
+{% load static %}
+{% block title %}
+BUSe
+{% endblock title %}
+
+{% block header-orange %}
+<div class="container hero" style="font-family: Montserrat, sans-serif;">
+    <div class="row">
+        <div class="col-12 col-lg-6 col-xl-6 offset-xl-1 align-self-start" style="padding-right: 15px;">
+            <h1 style="font-size: 33px;">Your Search for Buses Ends Here</h1>
+            <p>BUSe is the best way to find and locate your bus. It is ideal for commuters. With BUSe, you never miss your bus.</p><a class="btn btn-light btn-lg action-button" href={% url 'find' %}>Find Your Bus</a></div>
+            <div class="col-md-5 col-lg-5 offset-lg-1 offset-xl-0 d-none d-lg-block phone-holder">
+                <div class="iphone-mockup"><img class="device" src={% static '/img/iphone.svg' %}></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock header-orange %}
+
+{% block sections %}
+<div class="team-boxed">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">Our Team</h2>
+                <p class="text-center">These are the people behind the service.</p>
+            </div>
+            <div class="row people">
+                <div class="col-md-6 col-lg-4 item">
+                    <div class="box"><img class="rounded-circle" src="assets/img/1.jpg">
+                        <h3 class="name">Ben Johnson</h3>
+                        <p class="title">Musician</p>
+                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, et interdum justo suscipit id. Etiam dictum feugiat tellus, a semper massa. </p>
+                        <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 item">
+                    <div class="box"><img class="rounded-circle" src="assets/img/2.jpg">
+                        <h3 class="name">Emily Clark</h3>
+                        <p class="title">Artist</p>
+                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, et interdum justo suscipit id. Etiam dictum feugiat tellus, a semper massa. </p>
+                        <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 item">
+                    <div class="box"><img class="rounded-circle" src="assets/img/3.jpg">
+                        <h3 class="name">Carl Kent</h3>
+                        <p class="title">Stylist</p>
+                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, et interdum justo suscipit id. Etiam dictum feugiat tellus, a semper massa. </p>
+                        <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock sections %}
