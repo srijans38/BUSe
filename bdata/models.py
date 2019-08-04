@@ -1,6 +1,5 @@
 from django.db import models
 
-<<<<<<< HEAD
 routes_full = { 
     "A" : "Airport",
     "D" : "Durg",
@@ -8,8 +7,6 @@ routes_full = {
 }
 
 d = "DEF"
-=======
->>>>>>> 6a91735e23723b1ee3f4ece728ad99889284d843
 
 class Route(models.Model):
     source = models.CharField(max_length=1)
@@ -23,7 +20,7 @@ class Bus(models.Model):
     bno = models.CharField(max_length=10)
     driver = models.TextField()
     conducter = models.TextField()
-    route = models.ForeignKey(Route, on_delete=models.CASCADE)
+    route = models.ForeignKey(Route, on_delete=models.CASCADE, related_name="buses")
     status = models.IntegerField()
 
     def __str__(self):
@@ -37,3 +34,12 @@ class BusLoc(models.Model):
 
     def __str__(self):
         return f"Bus No : {self.bus.bno}"
+
+
+class BPoint(models.Model):
+    route = models.ManyToManyField(Route, related_name="bpoints")
+    name = models.CharField(max_length=50)
+    code = models.CharField(max_length=3)
+
+    def __str__(self):
+        return f"{self.name}"

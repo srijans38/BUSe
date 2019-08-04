@@ -23,8 +23,9 @@ Find Your Bus - BUSe
                         <label>Boarding Point</label>
                         <select name="bpoint" class="form-control" required="">
                             <option value="" hidden="">Select your boarding point.</option>
-                            <option value="12">Airport</option><option value="13">Telibandha Chowk</option>
-                            <option value="14">Tatibandh</option>
+                            {% for bpoint in bpoints %}
+                            <option value={{ bpoint.id }}>{{ bpoint.name }}</option>
+                            {% endfor %}
                         </select>
                     </div>
                     <div class="form-group" style="padding-top: 20px;">
@@ -34,4 +35,12 @@ Find Your Bus - BUSe
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="col">
+        {% for routed in routeds %}
+            <p>{{ routed }}</p>
+        {% endfor %}
+    </div>
+</div>
+
 {% endblock header-orange %}

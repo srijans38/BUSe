@@ -1,0 +1,25 @@
+{% extends 'bdata/base.html' %}
+
+{% block title %}
+Search - BUSe
+{% endblock title %}
+
+{% block header-orange %}
+<div class="row text-white justify-content-center" style="font-family: Montserrat, sans-serif;padding-top: 80px;padding-bottom: 20px;padding-right: 10px;padding-left: 10px;">
+    <div class="col">
+        <div class="container">
+            <h3 class="font-weight-bold">Buses on the selected route</h3>
+        </div>
+    </div>
+</div>
+<div class="row text-white justify-content-center" style="font-family: Montserrat, sans-serif;padding-top: 80px;padding-bottom: 80px;padding-right: 10px;padding-left: 10px;">
+    <div class="col-6">
+        <div class="container">
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock header-orange %}
