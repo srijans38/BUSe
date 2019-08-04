@@ -15,15 +15,17 @@ class Route(models.Model):
     def __str__(self):
         return f"{routes_full.get(self.source, d)} to {routes_full.get(self.destination, d)}"
 
+
 class Bus(models.Model):
     bno = models.CharField(max_length=10)
     driver = models.TextField()
     conducter = models.TextField()
-    route = models.ForeignKey(Route, on_delete=models.CASCADE)
+    route = models.ForeignKey(Route, on_delete=models.CASCADE, related_name="buses")
     status = models.IntegerField()
 
     def __str__(self):
         return f"{self.bno[:2]} {self.bno[2:4]} {self.bno[4:6]} {self.bno[6:]}"
+
 
 class BusLoc(models.Model):
     bus = models.OneToOneField(Bus, on_delete=models.CASCADE)
@@ -32,3 +34,12 @@ class BusLoc(models.Model):
 
     def __str__(self):
         return f"Bus No : {self.bus.bno}"
+
+
+class BPoint(models.Model):
+    route = models.ManyToManyField(Route, related_name="bpoints")
+    name = models.CharField(max_length=50)
+    code = models.CharField(max_length=3)
+
+    def __str__(self):
+        return f"{self.name}"
