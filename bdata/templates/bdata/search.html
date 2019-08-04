@@ -6,7 +6,7 @@ Search - BUSe
 {% block header-orange %}
 <div class="container hero" style="font-family: Montserrat, sans-serif; padding-bottom : 50px;">
         <div class="row">
-            <div class="col-2 d-flex justify-content-md-center align-items-md-center" style="padding-bottom: 20px;">
+            <div class="col-2 col-sm-2 col-md-1 d-flex justify-content-md-center align-items-md-center" style="padding-bottom: 20px;">
                 <a class="d-flex justify-content-center align-items-center btn btn-outline-light" href={% url 'find' %} style="padding-top: 6px;margin-top: 15px;">
                     <i class="material-icons d-lg-flex justify-content-lg-center align-items-lg-center">arrow_back</i>
                 </a>
@@ -18,7 +18,7 @@ Search - BUSe
 </div>
 <div class="row">
         {% for bus in buses %}
-        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3" style="padding: 10px;">
+        <div class="col-sm-12 col-md-6 col-lg-3" style="padding: 10px 15px;">
             <div class="card text-white bg-dark">
                 <div class="card-body">
                     <h4 class="card-title">{{ bus }}</h4>
