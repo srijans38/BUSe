@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600,800">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
     <link rel="stylesheet" href= {% static '/css/styles.min.css' %} >
+    <link rel="stylesheet" href= {% static '/css/anim.css' %} >
 </head>
 
 <body style="font-family: Montserrat, sans-serif;">
@@ -37,9 +38,11 @@
                       </form><span class="text-uppercase navbar-text"> <a class="login" href="#">Log In</a></span><a class="btn btn-light text-uppercase action-button" role="button" href="#">Sign Up</a></div>
               </div>
           </nav>
+
+          <main id="swup">
           {% block header-orange %}
           {% endblock header-orange %}
-
+          </main>
         </div>
         {% block sections %}
         {% endblock sections %}
@@ -77,6 +80,18 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
         <script src= {% static '/js/script.min.js' %} ></script>
+        <script src={% static '/js/node_modules/swup/dist/swup.js' %}></script>
+        <script src={% static '/js/node_modules/@swup/overlay-theme/dist/SwupOverlayTheme.js' %}></script>
+
+        <script>
+            
+            const swup = new Swup({
+                plugins: [new SwupOverlayTheme({
+                    color: "#ff9b35"
+                })]
+            });
+
+        </script>
     </body>
     
     </html>
