@@ -8,7 +8,7 @@ Find Your Bus - BUSe
 <div class="row text-white justify-content-center" style="font-family: Montserrat, sans-serif;padding-top: 80px;padding-bottom: 80px;padding-right: 10px;padding-left: 10px;">
     <div class="col-12 col-sm-8 col-lg-6 col-xl-4 align-self-center">
         <div class="container border rounded border-white">
-            <form name="find-form" action="" method="post" style="padding: 20px;margin: 30px;" >
+            <form name="find-form" action={% url 'search' %} method="post" style="padding: 20px;margin: 30px;" >
                     {% csrf_token %}
                     <div class="form-group">
                         <label>Route</label>
