@@ -1,0 +1,37 @@
+{% extends 'bdata/base.html' %}
+{% block title %}
+Search - BUSe
+{% endblock title %}
+
+{% block header-orange %}
+<div class="container">
+    <div class="progress" >
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    {% for bus in buses %}
+    
+    <h1>{{ bus }}</h1>
+    <p id="test"></p>
+    <button class="btn btn-outline-light" onclick="getLocation()">Try It</button>
+
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+var x = document.getElementById("test");
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude; 
+}
+</script>
+{% endblock scripts %}

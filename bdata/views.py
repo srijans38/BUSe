@@ -29,3 +29,9 @@ def home(request):
     }
     return render(request, 'bdata/home.html', context=context)
 
+def bus(request, bus_id):
+    context = {
+        "buses" : Bus.objects.filter(id=bus_id)
+    }
+    return render(request, 'bdata/bus.html', context=context)
+
