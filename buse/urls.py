@@ -22,4 +22,6 @@ urlpatterns = [
     path('api/', include('api.urls')),
     path('', views.home, name='home'),
     path('find/', views.find, name="find"),
+    path('search/', views.find, name="search"),
+    path('bus/<int:bus_id>/', views.bus, name="bus_details"),
 ]
