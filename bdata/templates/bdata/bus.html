@@ -6,16 +6,13 @@ Search - BUSe
 
 {% block header-orange %}
 <div class="container" id="map-container" style="height: 500px;">
-  {% for bus in buses %}
-    <h1>{{ bus }}</h1>
-  {% endfor %}
 </div>
 {% endblock %}
 
 {% block scripts %}
 <script>
 
-  var mymap = L.map('map-container').setView([21.233762, 81.595203], 15);
+  var mymap = L.map('map-container').setView([21.1996271, 81.3039555], 15);
 
   var busMarker = L.icon({
     iconUrl: '{% static '/img/bus.png' %}',
@@ -30,6 +27,8 @@ Search - BUSe
 	  accessToken: 'pk.eyJ1Ijoic3JpamFuczM4IiwiYSI6ImNqemN3cHRodzAyb2ozZG94YXZwN3VkMWYifQ.pszoH4JN8jktAkXtDl40wQ'
   }).addTo(mymap);
 
-  var marker = L.marker([21.233762, 81.595203], {icon : busMarker}).addTo(mymap);
+  {% for bus in buses %}
+    var marker = L.marker([{{ bus.busloc.lat }}, {{ bus.busloc.long }}], {icon : busMarker}).addTo(mymap);
+  {% endfor %}
 </script>
 {% endblock scripts %}
