@@ -8,7 +8,6 @@ djangorestframework==3.10.2
 gunicorn==19.9.0
 idna==2.8
 mccabe==0.6.1
-pkg-resources==0.0.0
 psycopg2==2.8.3
 psycopg2-binary==2.8.3
 pycodestyle==2.5.0
