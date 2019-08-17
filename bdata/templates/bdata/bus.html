@@ -19,10 +19,16 @@ Search - BUSe
 {% block scripts %}
 <script>
 
-  var mymap = L.map('map-container').setView([21.1996271, 81.3039555], 15);
+  var mymap = L.map('map-container').setView([{{ bpoint.bp.lat }}, {{ bpoint.bp.long }}], 13);
 
   var busMarker = L.icon({
     iconUrl: '{% static '/img/bus.png' %}',
+    iconSize: [60],
+    iconAnchor: [20, 20]
+  });
+
+  var userMarker = L.icon({
+    iconUrl: '{% static '/img/user-orange.png' %}',
     iconSize: [60],
     iconAnchor: [20, 20]
   });
@@ -37,5 +43,7 @@ Search - BUSe
   {% for bus in buses %}
     var marker = L.marker([{{ bus.busloc.lat }}, {{ bus.busloc.long }}], {icon : busMarker}).addTo(mymap);
   {% endfor %}
+    var marker = L.marker([{{ bpoint.bp.lat }}, {{ bpoint.bp.long }}], {icon : userMarker}).addTo(mymap);
+  
 </script>
 {% endblock scripts %}

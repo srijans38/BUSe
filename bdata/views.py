@@ -45,7 +45,8 @@ def bus(request, bus_id, bpoint):
 
     context = {
         "response" : {"travelDuration":travelDuration, "travelDistance":travelDistance},
-        "buses" : Bus.objects.filter(id=bus_id)
+        "buses" : Bus.objects.filter(id=bus_id),
+        "bpoint" : {"bp": bpoint_selected} 
     }
     return render(request, 'bdata/bus.html', context=context)
 
