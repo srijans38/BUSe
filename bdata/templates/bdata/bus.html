@@ -5,6 +5,13 @@ Search - BUSe
 {% endblock title %}
 
 {% block header-orange %}
+<div class="container" style="padding: 10px">
+  <div class="list-group">
+      <a href="#" class="list-group-item list-group-item-action list-group-item-dark">
+          The Bus is {{ response.travelDistance }} kms away and reaching you in {{ response.travelDuration }} mins.
+      </a>
+  </div>
+</div>
 <div class="container" id="map-container" style="height: 500px;">
 </div>
 {% endblock %}
