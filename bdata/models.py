@@ -41,6 +41,8 @@ class BPoint(models.Model):
     route = models.ManyToManyField(Route, related_name="bpoints")
     name = models.CharField(max_length=50)
     code = models.CharField(max_length=3)
+    lat = models.FloatField(default=0.0)
+    long = models.FloatField(default=0.0)
 
     def __str__(self):
         return f"{self.name}"

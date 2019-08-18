@@ -22,8 +22,8 @@ Search - BUSe
             <div class="card text-white bg-dark">
                 <div class="card-body">
                     <h4 class="card-title">{{ bus }}</h4>
-                    <h6 class="text-muted card-subtitle mb-2">Just passed {{ bus.busloc.lat }} , {{ bus.busloc.long }}</h6>
-                    <p class="card-text"></p><a class="card-link btn btn-outline-light btn-block" href={% url 'bus_details' bus.id  %}>Details</a></div>
+                    <h6 class="text-muted card-subtitle mb-2">Near {{ bus.busloc.lat }} , {{ bus.busloc.long }}</h6>
+                    <p class="card-text"></p><a class="card-link btn btn-outline-light btn-block" href={% url 'bus_details' bus.id bpoint_selected.id %}>Details</a></div>
             </div>
         </div>
         {% endfor %}

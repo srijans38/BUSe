@@ -23,5 +23,5 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('find/', views.find, name="find"),
     path('search/', views.find, name="search"),
-    path('bus/<int:bus_id>/', views.bus, name="bus_details"),
+    path('bus/<int:bus_id>/<int:bpoint>', views.bus, name="bus_details"),
 ]

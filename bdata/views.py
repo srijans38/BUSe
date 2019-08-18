@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from bdata.models import Route, Bus, BPoint
+import requests
 # Create your views here.
 
 def find(request):
@@ -29,9 +30,23 @@ def home(request):
     }
     return render(request, 'bdata/home.html', context=context)
 
-def bus(request, bus_id):
+def bus(request, bus_id, bpoint):
+    bus = Bus.objects.get(id=bus_id)
+    bus_lat = bus.busloc.lat
+    bus_long = bus.busloc.long
+    bpoint_selected = BPoint.objects.get(id=bpoint)
+    bpoint_lat = bpoint_selected.lat
+    bpoint_long = bpoint_selected.long
+    key = "Ajb5cBYG4DdffO9dIl4wRR3RVQSEhOQ4zOXIGWxURNl24Ro6E9qOgcwGBHwsuW6v"
+    dist_mat = requests.get(f"https://dev.virtualearth.net/REST/v1/Routes/DistanceMatrix?origins={bus_lat},{bus_long}&destinations={bpoint_lat},{bpoint_long}&travelMode=driving&key={key}")
+    response = dist_mat.json()
+    travelDuration = round(float(response["resourceSets"][0]["resources"][0]["results"][0]["travelDuration"]),1)
+    travelDistance = int(response["resourceSets"][0]["resources"][0]["results"][0]["travelDistance"])
+
     context = {
-        "buses" : Bus.objects.filter(id=bus_id)
+        "response" : {"travelDuration":travelDuration, "travelDistance":travelDistance},
+        "buses" : Bus.objects.filter(id=bus_id),
+        "bpoint" : {"bp": bpoint_selected} 
     }
     return render(request, 'bdata/bus.html', context=context)
 
