@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>leaflet</title>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+  integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+  crossorigin=""></script>
+  <style>
+  	#map{position: absolute;top: 0; bottom: 0;left: 0;right: 0;}
+  </style>
+</head>
+<body>
+	<div id="map"></div>
+    <script>
+    	var busIcon = L.icon({
+	iconUrl: 'bus.png',
+
+	iconSize:     [80], // size of the icon
+	iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+	popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+    	var map=L.map('map').setView([21.194159, 81.299171], 15);
+    	L.tileLayer('https://api.maptiler.com/maps/streets/256/{z}/{x}/{y}.png?key=nirAQ6Ln63tYfXuwopDc',{attribution:'<a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a>'}).addTo(map);
+    
+    	var marker = L.marker([21.194159, 81.299171], {icon: busIcon}).addTo(map);
+
+    </script>
+</body>
+</html>

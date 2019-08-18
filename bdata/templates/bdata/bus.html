@@ -1,0 +1,49 @@
+{% extends 'bdata/base.html' %}
+{% load static %}
+{% block title %}
+Search - BUSe
+{% endblock title %}
+
+{% block header-orange %}
+<div class="container" style="padding: 10px">
+  <div class="list-group">
+      <a href="#" class="list-group-item list-group-item-action list-group-item-dark">
+          The Bus is {{ response.travelDistance }} kms away and reaching you in {{ response.travelDuration }} mins.
+      </a>
+  </div>
+</div>
+<div class="container" id="map-container" style="height: 500px;">
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+
+  var mymap = L.map('map-container').setView([{{ bpoint.bp.lat }}, {{ bpoint.bp.long }}], 13);
+
+  var busMarker = L.icon({
+    iconUrl: '{% static '/img/bus.png' %}',
+    iconSize: [60],
+    iconAnchor: [20, 20]
+  });
+
+  var userMarker = L.icon({
+    iconUrl: '{% static '/img/user-orange.png' %}',
+    iconSize: [60],
+    iconAnchor: [20, 20]
+  });
+
+  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+	  attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+	  maxZoom: 18,
+	  id: 'mapbox.dark',
+	  accessToken: 'pk.eyJ1Ijoic3JpamFuczM4IiwiYSI6ImNqemN3cHRodzAyb2ozZG94YXZwN3VkMWYifQ.pszoH4JN8jktAkXtDl40wQ'
+  }).addTo(mymap);
+
+  {% for bus in buses %}
+    var marker = L.marker([{{ bus.busloc.lat }}, {{ bus.busloc.long }}], {icon : busMarker}).addTo(mymap);
+  {% endfor %}
+    var marker = L.marker([{{ bpoint.bp.lat }}, {{ bpoint.bp.long }}], {icon : userMarker}).addTo(mymap);
+  
+</script>
+{% endblock scripts %}
