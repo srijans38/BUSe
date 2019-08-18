@@ -50,3 +50,6 @@ def bus(request, bus_id, bpoint):
     }
     return render(request, 'bdata/bus.html', context=context)
 
+def loc(request):
+    return render(request, 'bdata/loc.html')
+
