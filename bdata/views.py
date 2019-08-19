@@ -53,3 +53,8 @@ def bus(request, bus_id, bpoint):
 def loc(request):
     return render(request, 'bdata/loc.html')
 
+
+def ot(req):
+    return render(req,"bdata/ourteam.html")
+
+
