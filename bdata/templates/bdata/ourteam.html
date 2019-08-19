@@ -1,0 +1,63 @@
+{% extends 'bdata/base.html' %}
+{% load static %}
+
+{% block style-head %}
+<style>
+    .header-blue {
+        padding: 0px
+    }
+</style>
+{% endblock style-head %}
+
+{% block sections %}
+<div class="team-boxed" id="team">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">Our Team</h2>
+                <p class="text-center">These are the people behind the service.</p>
+            </div>
+            <div class="row people align-self-center justify-content-center">
+                <div class="col-md-6 col-lg-4 item">
+                    <div class="box"><img class="rounded-circle" src={% static '/img/Abhishek.jpg' %}>
+                        <h3 class="name">Abhishek Bagarti</h3>
+                        <p class="title">Developer</p>
+                        <p class="description"></p>
+                        <div class="social"><a href="#"><i class="fa fa-facebook-official" title="facebook"></i></a><a href="mailto:ab61399@gmail.com" title="Mail"><i class="fa fa-envelope"></i></a><a href="#" title="twitter"><i class="fa fa-twitter"></i></a><a href="https://www.instagram.com/ab_ivan_/" title="Instagram"><i class="fa fa-instagram"></i></a></div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 item">
+                    <div class="box"><img class="rounded-circle" src={% static '/img/Atinder.jpg' %}>
+                        <h3 class="name">Atinder Pal Singh</h3>
+                        <p class="title">Developer</p>
+                        <p class="description"></p>
+                        <div class="social"><a href="https://www.facebook.com/jerm.gaming" title="facebook"><i class="fa fa-facebook-official"></i></a><a href="mailto:atinder999@gmail.com" title="Mail"><i class="fa fa-envelope"></i></a><a href="#" title="twitter"><i class="fa fa-twitter"></i></a><a href="https://www.instagram.com/jermgaming/" title="Instagram"><i class="fa fa-instagram"></i></a></div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 item">
+                    <div class="box"><img class="rounded-circle" src={% static '/img/Salman.jpg' %}>
+                        <h3 class="name">S Salman</h3>
+                        <p class="title">Developer</p>
+                        <p class="description"></p>
+                        <div class="social"><a href="#"><i class="fa fa-facebook-official" title="facebook"></i></a><a href="mailto:ssalmanyo9@gmail.com" title="Mail"><i class="fa fa-envelope"></i></a><a href="https://twitter.com/SSalman54251610" title="twitter"><i class="fa fa-twitter"></i></a><a href="https://www.instagram.com/s._a_l_m_a_.n/" title="Instagram"><i class="fa fa-instagram"></i></a></div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 item">
+                    <div class="box"><img class="rounded-circle" src={% static '/img/Sohail.jpeg' %}>
+                        <h3 class="name">Sohail Memon</h3>
+                        <p class="title">Developer</p>
+                        <p class="description"></p>
+                        <div class="social"><a href="#"><i class="fa fa-facebook-official" title="facebook"></i></a><a href="mailtosohailmemon10:@gmail.com" title="Mail"><i class="fa fa-envelope"></i></a><a href="#" title="twitter"><i class="fa fa-twitter"></i></a><a href="https://www.instagram.com/the_grey__wolf/" title="Instagram"><i class="fa fa-instagram"></i></a></div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 item">
+                    <div class="box"><img class="rounded-circle" src={% static '/img/Srijan.jpg' %}>
+                        <h3 class="name">Srijan Sharma</h3>
+                        <p class="title">Developer</p>
+                        <p class="description"></p>
+                        <div class="social"><a href="#" title="facebook"><i class="fa fa-facebook-official"></i></a><a href="mailto:srijans38@gmail.com" title="Mail"><i class="fa fa-envelope"></i></a><a href="#" title="twitter"><i class="fa fa-twitter"></i></a><a href="https://www.instagram.com/theguywithabignose/" title="Instagram"><i class="fa fa-instagram"></i></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock sections %}
