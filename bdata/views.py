@@ -51,5 +51,14 @@ def bus(request, bus_id, bpoint):
     return render(request, 'bdata/bus.html', context=context)
 
 def loc(request):
+    if request.method == "POST":
+        bus_lat = request.POST.get("lat")
+        bus_long = request.POST.get("long")
+
     return render(request, 'bdata/loc.html')
+
+
+def ot(req):
+    return render(req,"bdata/ourteam.html")
+
 

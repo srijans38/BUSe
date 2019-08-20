@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bdata.apps.BdataConfig',
     'rest_framework',
-    'api'
+    'api',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -58,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'buse.urls'
@@ -134,3 +136,5 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 #django_heroku.settings(locals())
+
+CORS_ORIGIN_ALLOW_ALL = True
