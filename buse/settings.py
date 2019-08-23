@@ -30,9 +30,9 @@ if os.path.isfile(dotenv_file):
 SECRET_KEY = 'empoq1v7_iowh_f+_54(e3@xg-m%t8+uth*bc-251sopf@f0!m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*','0.0.0.0', '192.168.1.10', '127.0.0.1', 'localhost', '192.168.1.11', '.herokuapp.com']
+ALLOWED_HOSTS = ['192.168.1.10', '127.0.0.1', 'localhost', '192.168.1.11', '.herokuapp.com']
 
 
 # Application definition
