@@ -30,9 +30,11 @@ if os.path.isfile(dotenv_file):
 SECRET_KEY = 'empoq1v7_iowh_f+_54(e3@xg-m%t8+uth*bc-251sopf@f0!m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*','0.0.0.0', '192.168.1.10', '127.0.0.1', 'localhost', '192.168.1.11', '.herokuapp.com']
+
+ALLOWED_HOSTS = ['.buseweb.tech','.azurewebsites.net', '127.0.0.1', 'localhost', '.herokuapp.com']
+
 
 
 # Application definition
@@ -46,7 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bdata.apps.BdataConfig',
     'rest_framework',
-    'api'
+    'api',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -58,6 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'buse.urls'
@@ -134,3 +138,5 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 #django_heroku.settings(locals())
+
+CORS_ORIGIN_ALLOW_ALL = True

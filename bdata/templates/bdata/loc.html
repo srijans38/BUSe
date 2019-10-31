@@ -1,0 +1,81 @@
+{% extends 'bdata/base.html' %}
+
+{% block title %}
+    Update Location
+{% endblock title %}
+    
+
+{% block header-orange %}
+    <h1>
+        Current Location : <p id="currLoc"></p>
+    </h1>
+    <a class="btn btn-outline-white" id="sendBtn">Send</a>
+{% endblock header-orange %}
+    
+
+{% block scripts %}
+    <script>
+        var x = document.getElementById("currLoc");
+        function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.watchPosition(showPosition, showError);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+        }
+        function showError(error) {
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    x.innerHTML = "User denied the request for Geolocation."
+                    break;
+                    case error.POSITION_UNAVAILABLE:
+                        x.innerHTML = "Location information is unavailable."
+                        break;
+                        case error.TIMEOUT:
+                            x.innerHTML = "The request to get user location timed out."
+                            break;
+                            case error.UNKNOWN_ERROR:
+                                x.innerHTML = "An unknown error occurred."
+                                break;
+                            }
+                        }
+                        
+                        document.addEventListener("DOMContentLoaded", function() {
+                            getLocation();
+                        });
+                        
+                        
+                        
+        $.postJSON = function(url, data, callback) {
+            return jQuery.ajax({
+                headers: { 
+                    'Content-Type': 'application/json' 
+                },
+                xhrFields: {
+                    withCredentials: true
+                },
+                'type': 'PUT',
+                'url': url,
+                'data': JSON.stringify(data),
+                'dataType': 'json',
+                'success': callback
+                });
+            };
+
+        var url = "https://buse23.herokuapp.com/api/loc/1/";
+                        
+        var data = {
+            "bus" : 1,
+        };
+
+        function showPosition(position) {
+            x.innerHTML = "Latitude: " + position.coords.latitude + 
+            "<br>Longitude: " + position.coords.longitude;
+            
+            data.lat = position.coords.latitude;
+            data.long = position.coords.longitude;
+
+            $.postJSON(url, data)
+        }
+    </script>
+{% endblock scripts %}

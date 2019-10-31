@@ -3,4 +3,10 @@
 /lib64
 /lib
 /include
+.vscode
 pyvenv.cfg
+__pycache__/
+*.py[cod]
+.env
+db.sqlite3
+staticfiles/

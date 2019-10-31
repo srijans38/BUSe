@@ -24,4 +24,6 @@ urlpatterns = [
     path('find/', views.find, name="find"),
     path('search/', views.find, name="search"),
     path('bus/<int:bus_id>/<int:bpoint>', views.bus, name="bus_details"),
+    path('updateloc', views.loc, name="updateloc"),
+    path('our_team',views.ot),
 ]

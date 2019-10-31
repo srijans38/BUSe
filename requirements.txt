@@ -1,7 +1,8 @@
 certifi==2019.6.16
 chardet==3.0.4
 dj-database-url==0.5.0
-Django==2.2.4
+Django==2.2.3
+django-cors-headers==3.1.0
 django-heroku==0.3.1
 django-rest-framework==0.1.0
 djangorestframework==3.10.2
